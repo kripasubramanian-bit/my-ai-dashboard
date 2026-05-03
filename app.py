@@ -14,7 +14,7 @@ st.set_page_config(layout="wide", page_title="AI Comparison Machine")
 # These are the "FREE" models so you never get a bill
 MODELS = {
     "Llama 3 (Free)": "meta-llama/llama-3-8b-instruct:free",
-    "Gemini 1.5 (Free)": "google/gemini-pro-1.5",
+    "Gemini 1.5 (Free)": "google/gemini-flash-1.5-8b:free",
     "Mistral (Free)": "mistralai/mistral-7b-instruct:free",
     "Qwen 2 (Free)": "qwen/qwen-2-7b-instruct:free"
 }
