@@ -36,7 +36,7 @@ if st.button("Compare Now"):
             st.subheader("Gemini 1.5")
             try:
                 res2 = client.chat.completions.create(
-                   model="google/gemini-flash-1.5-8b",
+                   model="google/gemini-2.0-flash-001",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res2.choices[0].message.content)
