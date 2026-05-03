@@ -26,7 +26,7 @@ if st.button("Compare Now"):
             st.subheader("Llama 3.1")
             try:
                 res = client.chat.completions.create(
-                    model="meta-llama/llama-3.1-8b-instruct:free",
+                    model="meta-llama/llama-3.1-8b-instruct",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res.choices[0].message.content)
@@ -49,7 +49,7 @@ if st.button("Compare Now"):
             st.subheader("Mistral")
             try:
                 res = client.chat.completions.create(
-                    model="mistralai/mistral-7b-instruct:free",
+                    model="mistralai/mistral-7b-instruct-v0.1",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res.choices[0].message.content)
@@ -60,7 +60,7 @@ if st.button("Compare Now"):
             st.subheader("OpenChat")
             try:
                 res = client.chat.completions.create(
-                    model="openchat/openchat-7b:free",
+                    model="gryphe/mythomist-7b:free",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res.choices[0].message.content)
