@@ -60,7 +60,7 @@ if st.button("Compare Now"):
             st.subheader("OpenChat")
             try:
                 res = client.chat.completions.create(
-                    model="gryphe/mythomist-7b:free",
+                    model="qwen/qwen-2-7b-instruct:free",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res.choices[0].message.content)
