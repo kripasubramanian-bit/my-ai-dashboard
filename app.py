@@ -57,10 +57,10 @@ if st.button("Compare Now"):
                 st.error(f"Error: {e}")
 
         with col4:
-            st.subheader("OpenChat")
+            st.subheader("Phi-3 (Microsoft)")
             try:
                 res = client.chat.completions.create(
-                    model="qwen/qwen-2-7b-instruct:free",
+                    model="microsoft/phi-3-mini-128k-instruct:free",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res.choices[0].message.content)
