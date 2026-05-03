@@ -56,7 +56,7 @@ if st.button("Compare Now"):
             except Exception as e:
                 st.error(f"Error: {e}")
 
-       with col4:
+        with col4:
             st.subheader("GPT-OSS (OpenAI)")
             try:
                 res = client.chat.completions.create(
