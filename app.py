@@ -57,10 +57,10 @@ if st.button("Compare Now"):
                 st.error(f"Error: {e}")
 
         with col4:
-            st.subheader("Phi-3 (Microsoft)")
+            st.subheader("Gemma 4")
             try:
                 res = client.chat.completions.create(
-                    model="microsoft/phi-3-mini-128k-instruct:free",
+                    model="google/gemma-4-26b-a4b:free",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res.choices[0].message.content)
