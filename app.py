@@ -23,46 +23,49 @@ if st.button("Compare Now"):
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.subheader("Llama 3.1")
-            try:
-                res = client.chat.completions.create(
-                    model="meta-llama/llama-3.1-8b-instruct",
-                    messages=[{"role": "user", "content": user_query}]
-                )
-                st.write(res.choices[0].message.content)
-            except Exception as e:
-                st.error(f"Error: {e}")
+            with st.container(border=True): # Adds a professional box
+                st.subheader("🦙 Llama 3.1")
+                try:
+                    res = client.chat.completions.create(
+                        model="meta-llama/llama-3.1-8b-instruct",
+                        messages=[{"role": "user", "content": user_query}]
+                    )
+                    st.info(res.choices[0].message.content) # Blue background for text
+                except Exception as e:
+                    st.error(f"Error: {e}")
 
         with col2:
-            st.subheader("Gemini 2.0")
-            try:
-                # Using the specific name that worked for you!
-                res = client.chat.completions.create(
-                    model="google/gemini-2.0-flash-001",
-                    messages=[{"role": "user", "content": user_query}]
-                )
-                st.write(res.choices[0].message.content)
-            except Exception as e:
-                st.error(f"Error: {e}")
+            with st.container(border=True):
+                st.subheader("♊ Gemini 2.0")
+                try:
+                    res = client.chat.completions.create(
+                        model="google/gemini-2.0-flash-001",
+                        messages=[{"role": "user", "content": user_query}]
+                    )
+                    st.success(res.choices[0].message.content) # Green background
+                except Exception as e:
+                    st.error(f"Error: {e}")
 
         with col3:
-            st.subheader("Mistral")
-            try:
-                res = client.chat.completions.create(
-                    model="mistralai/mistral-7b-instruct-v0.1",
-                    messages=[{"role": "user", "content": user_query}]
-                )
-                st.write(res.choices[0].message.content)
-            except Exception as e:
-                st.error(f"Error: {e}")
+            with st.container(border=True):
+                st.subheader("🌬️ Mistral")
+                try:
+                    res = client.chat.completions.create(
+                        model="mistralai/mistral-7b-instruct-v0.1",
+                        messages=[{"role": "user", "content": user_query}]
+                    )
+                    st.warning(res.choices[0].message.content) # Yellow background
+                except Exception as e:
+                    st.error(f"Error: {e}")
 
         with col4:
-            st.subheader("GPT-OSS (OpenAI)")
-            try:
-                res = client.chat.completions.create(
-                    model="openai/gpt-oss-120b:free",
-                    messages=[{"role": "user", "content": user_query}]
-                )
-                st.write(res.choices[0].message.content)
-            except Exception as e:
-                st.error(f"Error: {e}")
+            with st.container(border=True):
+                st.subheader("🤖 GPT-OSS")
+                try:
+                    res = client.chat.completions.create(
+                        model="openai/gpt-oss-120b:free",
+                        messages=[{"role": "user", "content": user_query}]
+                    )
+                    st.write(res.choices[0].message.content) # Plain background
+                except Exception as e:
+                    st.error(f"Error: {e}")
