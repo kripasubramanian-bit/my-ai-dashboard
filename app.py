@@ -56,11 +56,11 @@ if st.button("Compare Now"):
             except Exception as e:
                 st.error(f"Error: {e}")
 
-        with col4:
-            st.subheader("Gemma 4")
+       with col4:
+            st.subheader("GPT-OSS (OpenAI)")
             try:
                 res = client.chat.completions.create(
-                    model="google/gemma-4-26b-a4b:free",
+                    model="openai/gpt-oss-120b:free",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res.choices[0].message.content)
