@@ -25,7 +25,7 @@ if st.button("Compare Now"):
             st.subheader("Llama 3")
             try:
                 res1 = client.chat.completions.create(
-                    model="meta-llama/llama-3.1-8b-instruct:free",
+                    model="meta-llama/llama-3.1-8b-instruct",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res1.choices[0].message.content)
@@ -36,7 +36,7 @@ if st.button("Compare Now"):
             st.subheader("Gemini 1.5")
             try:
                 res2 = client.chat.completions.create(
-                    model="google/gemini-flash-1.5-exp:free",
+                   model="google/gemini-flash-1.5-8b",
                     messages=[{"role": "user", "content": user_query}]
                 )
                 st.write(res2.choices[0].message.content)
