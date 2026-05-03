@@ -1,1 +1,1 @@
-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
+client = AsyncOpenAI(api_key=st.secrets["OPENROUTER_API_KEY"], ...)
