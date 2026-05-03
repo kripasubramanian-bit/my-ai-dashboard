@@ -1,3 +1,4 @@
+st.set_page_config(layout="wide")
 import streamlit as st
 import openai
 
@@ -19,26 +20,49 @@ user_query = st.text_input("Ask a question:", placeholder="e.g. What is 1+1?")
 
 if st.button("Compare Now"):
     if user_query:
-        col1, col2 = st.columns(2)
+        col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.subheader("Llama 3")
+            st.subheader("Llama 3.1")
             try:
-                res1 = client.chat.completions.create(
-                    model="meta-llama/llama-3.1-8b-instruct",
+                res = client.chat.completions.create(
+                    model="meta-llama/llama-3.1-8b-instruct:free",
                     messages=[{"role": "user", "content": user_query}]
                 )
-                st.write(res1.choices[0].message.content)
+                st.write(res.choices[0].message.content)
             except Exception as e:
                 st.error(f"Error: {e}")
 
         with col2:
-            st.subheader("Gemini 1.5")
+            st.subheader("Gemini 2.0")
             try:
-                res2 = client.chat.completions.create(
-                   model="google/gemini-2.0-flash-001",
+                # Using the specific name that worked for you!
+                res = client.chat.completions.create(
+                    model="google/gemini-2.0-flash-001",
                     messages=[{"role": "user", "content": user_query}]
                 )
-                st.write(res2.choices[0].message.content)
+                st.write(res.choices[0].message.content)
+            except Exception as e:
+                st.error(f"Error: {e}")
+
+        with col3:
+            st.subheader("Mistral")
+            try:
+                res = client.chat.completions.create(
+                    model="mistralai/mistral-7b-instruct:free",
+                    messages=[{"role": "user", "content": user_query}]
+                )
+                st.write(res.choices[0].message.content)
+            except Exception as e:
+                st.error(f"Error: {e}")
+
+        with col4:
+            st.subheader("OpenChat")
+            try:
+                res = client.chat.completions.create(
+                    model="openchat/openchat-7b:free",
+                    messages=[{"role": "user", "content": user_query}]
+                )
+                st.write(res.choices[0].message.content)
             except Exception as e:
                 st.error(f"Error: {e}")
